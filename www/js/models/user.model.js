@@ -8,20 +8,24 @@
 
   function User() {
     var userInfo = {
-      userId: null,
-      role: null,
-      isPresident: null,
-      userName: null,
-      authenticated: null
+      "userId":null,
+      "name":null,
+      "email":null,
+      "mobile":null,
+      "createdDate":null,
+      "role":0
     };
-
     return {
       setUserInfo: function (info) {
+        debugger;
         userInfo = info;
       },
 
       getUserName: function () {
-        return userInfo.userName;
+        return userInfo.name;
+      },
+      getUserId: function () {
+        return userInfo.userId;
       }
     };
   }

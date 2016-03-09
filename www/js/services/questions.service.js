@@ -4,9 +4,9 @@
   angular.module('app')
     .factory('QuestionService', QuestionService);
 
-  QuestionService.$inject = ['$q', '$http'];
+  QuestionService.$inject = ['$q', '$http', 'User'];
 
-  function QuestionService($q, $http) {
+  function QuestionService($q, $http, user) {
     return {
       getAllQuestions: getAllQuestions,
       getAnsweredQuestions: getAnsweredQuestions,
@@ -14,13 +14,17 @@
     };
 
     function getAllQuestions() {
+
+      var _model = { userId: user.getUserId() };
+
       return $http({
         url: '/record',
-        method: 'get'
+        method: 'get',
+        params: _model
       }).then(function (response) {
         return response.data;
       });
-
+/*
       var defer = $q.defer();
       defer.resolve([
         {
@@ -50,7 +54,7 @@
           "likeCount": 20
         }
       ]);
-      return defer.promise;
+      return defer.promise;*/
     }
 
     function getAnsweredQuestions() {

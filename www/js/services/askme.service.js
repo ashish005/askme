@@ -15,7 +15,7 @@
                 data: model,
                 method: 'post'
             }).then(function(response) {
-                return response.data;
+                return response.data.data;
             });
         };
         this.getPresident = function () {

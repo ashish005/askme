@@ -36,6 +36,10 @@
                 $state.go('questions.all');
             });
         };
+
+        $scope.goBack = function () {
+            $state.go('questions.all');
+        };
     }
 })();
 

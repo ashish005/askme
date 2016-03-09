@@ -90,7 +90,7 @@ angular.module('app', ['ionic'])
         }
       })
 
-        .state('askquestion', {
+        .state('starter.askquestion', {
           url: '/ask',
           templateUrl: 'templates/askme.html',
           controller: 'AskQuestionCtrl'

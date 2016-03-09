@@ -21,7 +21,7 @@
     });
 
     $scope.navigateToAsk = function () {
-      $state.go('askquestion');
+      $state.go('starter.askquestion');
     }
   }
 })();

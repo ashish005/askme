@@ -4,9 +4,9 @@
   angular.module('app')
     .controller('QuestionsCtrl', QuestionsCtrl);
 
-  QuestionsCtrl.$inject = ['$scope', '$state', 'QuestionService'];
+  QuestionsCtrl.$inject = ['$scope', '$state', 'QuestionService', 'AskMeService', 'User'];
 
-  function QuestionsCtrl ($scope, $state, QuestionService) {
+  function QuestionsCtrl ($scope, $state, QuestionService, AskMeService, User) {
     var typeMap = {
       'all': 'getAllQuestions',
       'answered': 'getAnsweredQuestions',
@@ -22,6 +22,13 @@
 
     $scope.navigateToAsk = function () {
       $state.go('starter.askquestion');
+    };
+
+    $scope.canAnswer = User.isPresident();
+
+    $scope.navigateToAnswer = function (question) {
+      AskMeService.cacheQuestionInfo(question);
+      $state.go('starter.answerQuestion');
     };
   }
 })();

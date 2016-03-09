@@ -27,6 +27,27 @@
                 return response.data;
             });
         };
+
+        this.answer = function (answerInfo) {
+            return $http({
+                url: '/record',
+                data: answerInfo,
+                method: 'post'
+            }).then(function(response) {
+                return response.data;
+            });
+        };
+
+        var questionInfo;
+        this.cacheQuestionInfo = function (question) {
+            questionInfo = question;
+        };
+
+        this.getCachedQuestionInfo = function () {
+            var retVal = questionInfo;
+            questionInfo = {};
+            return retVal;
+        }
     }
 })();
 

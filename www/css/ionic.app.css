@@ -9760,3 +9760,8 @@ a.button {
   padding-top: 5px;
   margin-top: 5px;
   border-top: 1px solid #eee; }
+
+.answer-it {
+  color: #004444;
+  font-size: 14px;
+  font-weight: 700; }

@@ -25,6 +25,10 @@
               <strong class="question-answered" style="float: right;" ng-if="question.isAnswered">
                 Answered {{question.updatedDate | date : 'M.d.yyyy'}}
               </strong>
+              <button class="button button-clear button-icon ion-reply answer-it"
+                      style="float: right;"
+                      ng-click="navigateToAnswer(question)"
+                      ng-if="!question.isAnswered && canAnswer">&nbsp;Answer</button>
             </div>
           </div>
           <div class="answer-container" ng-if="question.isAnswered">

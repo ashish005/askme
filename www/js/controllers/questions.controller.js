@@ -22,7 +22,7 @@
 
     $scope.navigateToAsk = function () {
       $state.go('starter.askquestion');
-    }
+    };
   }
 })();
 

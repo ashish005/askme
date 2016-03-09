@@ -1,4 +1,4 @@
-<ion-view view-title="Questions">
+<ion-view view-title="Questions" cache-view="false">
   <ion-nav-buttons side="right">
     <button class="button button-icon icon ion-ios-search"></button>
     <button class="button button-icon icon ion-ios-compose-outline" ng-click="navigateToAsk()"></button>
@@ -42,6 +42,5 @@
         </div>
       </div>
     </ion-list>
-    <ion-infinite-scroll on-infinite="loadMore()" distance="20%" ng-if="moreItemsAvailable"></ion-infinite-scroll>
   </ion-content>
 </ion-view>

@@ -30,6 +30,14 @@
       AskMeService.cacheQuestionInfo(question);
       $state.go('starter.answerQuestion');
     };
+
+    $scope.doRefresh = function () {
+      QuestionService[method]().then(function (items) {
+        $scope.questions = items;
+      }).finally(function() {
+        $scope.$broadcast('scroll.refreshComplete');
+      });
+    }
   }
 })();
 

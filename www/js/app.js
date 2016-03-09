@@ -123,6 +123,7 @@ angular.module('app', ['ionic'])
 
   .config(function ($ionicConfigProvider) {
     $ionicConfigProvider.tabs.position('bottom');
+      $ionicConfigProvider.views.maxCache(0);
   })
 
     .constant('Constants', {

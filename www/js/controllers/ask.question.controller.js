@@ -30,7 +30,7 @@
         };
 
         $scope.ask = function () {
-            AskMeService.ask($scope.askMeInfo.form).then(function () {
+            AskMeService.ask($scope.askMeInfo.form).then(function (response) {
                 $state.go('questions.all');
             });
         };

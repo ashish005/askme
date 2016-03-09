@@ -88,13 +88,37 @@ angular.module('app', ['ionic'])
         data: {
           filter: 'liked'
         }
-      });
+      })
+
+        .state('askquestion', {
+          url: '/ask',
+          templateUrl: 'templates/askme.html',
+          controller: 'AskQuestionCtrl'
+        });
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/auth');
 
   })
 
+    .config(function($httpProvider) {
+      $httpProvider.interceptors.push(function(Constants) {
+        return {
+          request: function(config) {
+            if (!/.html$/.test(config.url) && !/^http/.test(config.url)) {
+              var separator = config.url.charAt(0) === '/' ? '' : '/';
+              config.url = Constants.baseUrl + separator + config.url;
+            }
+            return config;
+          }
+        }
+      });
+    })
+
   .config(function ($ionicConfigProvider) {
     $ionicConfigProvider.tabs.position('bottom');
-  });
+  })
+
+    .constant('Constants', {
+        baseUrl: ''
+    });

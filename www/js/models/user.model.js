@@ -16,16 +16,8 @@
     };
 
     return {
-      setUserId: function (userId) {
-        userInfo.userId = userId;
-      },
-
-      isAuthenticated: function () {
-        return userInfo.authenticated;
-      },
-
-      getUserRole: function () {
-        return userInfo.role;
+      setUserInfo: function (info) {
+        userInfo = info;
       },
 
       getUserName: function () {

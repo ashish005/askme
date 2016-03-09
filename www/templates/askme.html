@@ -1,0 +1,35 @@
+<ion-view title="Ask the President">
+    <ion-content>
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    President
+                </div>
+                <select ng-options="item as item.name for item in presidents track by item.id"
+                        ng-model="president"></select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Issue, question or idea?
+                </div>
+                <select ng-model="askMeInfo.form.type">
+                    <option value="issue">Issue</option>
+                    <option value="question">Question</option>
+                    <option value="idea">Idea</option>
+                </select>
+            </label>
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Subject</span>
+                <input type="text" placeholder="Subject" ng-model="askMeInfo.form.subject">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Ask</span>
+                <textarea placeholder="Please ask your query here" ng-model="askMeInfo.form.comment" />
+            </label>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar-assertive">
+        <button class="button button-clear" ng-click="ask()">POST</button>
+    </ion-footer-bar>
+</ion-view>

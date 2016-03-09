@@ -1,26 +1,27 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular.module('app')
-    .service('AuthService', AuthService);
+    angular.module('app')
+        .service('AuthService', AuthService);
 
-  AuthService.$inject = ['User', '$http'];
+    AuthService.$inject = ['User', '$http'];
 
-  function AuthService(User, $http) {
-    this.authenticate = function (userInfo) {
-      return $http({
-        url: '/api/authenticate',
-        params: userInfo,
-        method: 'post'
-      }).then(function(response) {
-        var authResponse = response.data;
-        if (authResponse.success) {
-          return true;
-        } else {
-          throw new Error('Authentication failed');
-        }
-      });
-    };
-  }
+    function AuthService(User, $http) {
+        this.authenticate = function (userInfo) {
+            return $http({
+                url: '/login',
+                data: userInfo,
+                method: 'post'
+            }).then(function (response) {
+                var authResponse = response.data;
+                User.setUserInfo(authResponse.data);
+                if (authResponse.isSuccess) {
+                    return true;
+                } else {
+                    throw new Error(authResponse.message);
+                }
+            });
+        };
+    }
 })();
 

@@ -19,6 +19,10 @@
     QuestionService[method]().then(function (items) {
       $scope.questions = items;
     });
+
+    $scope.navigateToAsk = function () {
+      $state.go('askquestion');
+    }
   }
 })();
 

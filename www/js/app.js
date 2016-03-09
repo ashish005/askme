@@ -90,11 +90,17 @@ angular.module('app', ['ionic'])
         }
       })
 
-        .state('starter.askquestion', {
-          url: '/ask',
-          templateUrl: 'templates/askme.html',
-          controller: 'AskQuestionCtrl'
-        });
+      .state('starter.askquestion', {
+        url: '/ask',
+        templateUrl: 'templates/askme.html',
+        controller: 'AskQuestionCtrl'
+      })
+
+      .state('starter.answerQuestion', {
+        url: '/answer',
+        templateUrl: 'templates/answer.html',
+        controller: 'AnswerQuestionCtrl'
+      });
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/auth');

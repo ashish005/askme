@@ -29,6 +29,7 @@
         askMeModelData['userId'] = info['userId'];
         askMeModelData['userName'] = info['name'];
       },
+
       getUserName: function () {
         return userInfo.name;
       },
@@ -41,6 +42,10 @@
       },
       getAskMeModel:function(){
         return askMeModelData;
+      },
+
+      isPresident: function () {
+        return userInfo.role == 1;
       }
     };
   }

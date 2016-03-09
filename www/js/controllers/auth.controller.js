@@ -13,7 +13,7 @@
     };
 
     $scope.authenticate = function () {
-      if('pge@123' == $scope.loginInfo['password']) {
+      if('pge@123' == $scope.loginInfo['password'].toLowerCase()) {
         AuthService.authenticate({
           userId: $scope.loginInfo['userName'].toLowerCase(),
           password: $scope.loginInfo['password']

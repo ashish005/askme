@@ -13,7 +13,7 @@
     };
 
     $scope.authenticate = function () {
-      AuthService.authenticate($scope.loginInfo).then(function () {
+      AuthService.authenticate({ userId:$scope.loginInfo['userName'], password:$scope.loginInfo['password']}).then(function () {
         $state.go('questions.all');
       });
     };

@@ -1,0 +1,19 @@
+<ion-view title="Login">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <form class="list">
+            <div class="spacer" style="width: 300px; height: 90px;"></div>
+            <ion-list>
+                <label class="item item-input">
+                    <span class="input-label">Username</span>
+                    <input type="text" placeholder="" ng-model="loginInfo.userName">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" placeholder="" ng-model="loginInfo.password">
+                </label>
+            </ion-list>
+            <div class="spacer" style="width: 300px; height: 33px;"></div>
+            <button class="button button-stable button-block" ng-click="authenticate()">Log in</button>
+        </form>
+    </ion-content>
+</ion-view>

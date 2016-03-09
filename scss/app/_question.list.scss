@@ -1,0 +1,35 @@
+.card-wrapper {
+  font-size: 14px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.question-header, .answer-header {
+  font-size: 12px;
+  color: #aaa;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.question-footer {
+  padding-top: 5px;
+  font-size: 12px;
+  color: #00bbff;
+  display: inline-block;
+  width: 100%;
+}
+
+.question-subject {
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.question-content {
+  padding-top: 5px;
+}
+
+.answer-container {
+  padding-top: 5px;
+  margin-top: 5px;
+  border-top: 1px solid #eee;
+}

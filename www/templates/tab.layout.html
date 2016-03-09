@@ -1,0 +1,23 @@
+<ion-nav-bar class="bar-stable">
+  <ion-nav-back-button>
+  </ion-nav-back-button>
+</ion-nav-bar>
+
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+  <!-- All Tab -->
+  <ion-tab title="All" icon-off="ion-ios-paper-outline" icon-on="ion-ios-paper" href="#/questions/all">
+    <ion-nav-view name="all"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Answered Tab -->
+  <ion-tab title="Answered" icon-off="ion-ios-star-outline" icon-on="ion-ios-star" href="#/questions/answered">
+    <ion-nav-view name="answered"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Likes Tab -->
+  <ion-tab title="My likes" icon-off="ion-ios-heart-outline" icon-on="ion-ios-heart" href="#/questions/liked">
+    <ion-nav-view name="likes"></ion-nav-view>
+  </ion-tab>
+
+</ion-tabs>

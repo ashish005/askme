@@ -1,0 +1,43 @@
+<ion-view view-title="Questions">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-ios-search"></button>
+    <button class="button button-icon icon ion-ios-compose-outline"></button>
+  </ion-nav-buttons>
+  <ion-content scrollbar-x="false" scrollbar-y="false">
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+    <ion-list>
+      <div ng-repeat="question in questions">
+        <div class="card-wrapper">
+          <div class="question-container">
+            <div class="question-header">
+              {{question.userName}} wrote this {{question.createdDate | date : 'M.d.yyyy'}}
+            </div>
+            <div class="question-subject">
+              {{question.form.subject}}
+            </div>
+            <div class="question-content">
+              {{question.form.comment}}
+            </div>
+            <div class="question-footer">
+              <span class="question-likes" style="float: left;">
+                {{question.likeCount}} Likes <i class="icon ion-thumbsup"></i>
+              </span>
+              <strong class="question-answered" style="float: right;">
+                Answered {{question.updatedDate | date : 'M.d.yyyy'}}
+              </strong>
+            </div>
+          </div>
+          <div class="answer-container">
+            <div class="answer-header">
+              {{question.presidentName}}
+            </div>
+            <div class="answer-content">
+              {{question.answer}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="20%" ng-if="moreItemsAvailable"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>

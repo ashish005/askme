@@ -9,7 +9,7 @@
                     President
                 </div>
                 <select ng-options="item as item.name for item in presidents track by item.id"
-                        ng-model="president"></select>
+                        ng-model="president" ng-change="setPresident()"></select>
             </label>
             <label class="item item-input item-select">
                 <div class="input-label">

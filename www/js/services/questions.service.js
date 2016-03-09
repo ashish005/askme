@@ -18,8 +18,7 @@
       var _model = { userId: user.getUserId() };
       return $http({
         url: '/record',
-        method: 'get',
-        params: _model
+        method: 'get'
       }).then(function (response) {
         return response.data.data;
       });
@@ -28,7 +27,8 @@
     function getAnsweredQuestions() {
       return $http({
         url: '/record',
-        method: 'get'
+        method: 'get',
+        params:{ userId: user.getUserId() }
       }).then(function (response) {
         return response.data.data;
       });
@@ -37,7 +37,8 @@
     function getFavouriteQuestions() {
       return $http({
         url: '/record',
-        method: 'get'
+        method: 'get',
+        params:{ userId: user.getUserId() }
       }).then(function (response) {
         return response.data.data;
       });

@@ -7,16 +7,14 @@
     AskQuestionCtrl.$inject = ['$scope', '$state', 'AskMeService', 'User'];
 
     function AskQuestionCtrl ($scope, $state, AskMeService, User) {
-        $scope.presidents = [
-            {
-                id: 1,
-                name: ''
-            },
-            {
-                id: 2,
-                name: ''
-            }
-        ];
+        AskMeService.getPresident().then(function (response) {
+            $scope.userFriends = response['users'];
+            $scope.presidents = response['presidents'];
+        });
+
+        $scope.setPresident = function(){
+            User.setAskMeModelPresidentInfo(this['president']);
+        }
 
         $scope.askMeInfo = {
             presidentId: '',
@@ -32,7 +30,7 @@
         };
 
         $scope.ask = function () {
-            AskMeService.ask($scope.askMeInfo).then(function () {
+            AskMeService.ask($scope.askMeInfo.form).then(function () {
                 $state.go('questions.all');
             });
         };

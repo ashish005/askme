@@ -15,17 +15,32 @@
       "createdDate":null,
       "role":0
     };
+    var askMeModelData = {
+      askmeId:'',
+      userId:null,
+      userName:null,
+      presidentId:null,
+      presidentName:null,
+      form:{}
+    };
     return {
       setUserInfo: function (info) {
-        debugger;
         userInfo = info;
+        askMeModelData['userId'] = info['userId'];
+        askMeModelData['userName'] = info['name'];
       },
-
       getUserName: function () {
         return userInfo.name;
       },
       getUserId: function () {
         return userInfo.userId;
+      },
+      setAskMeModelPresidentInfo : function(data){
+        askMeModelData['presidentId'] = data['userId'];
+        askMeModelData['presidentName'] = data['name'];
+      },
+      getAskMeModel:function(){
+        return askMeModelData;
       }
     };
   }

@@ -16,7 +16,6 @@
     function getAllQuestions() {
 
       var _model = { userId: user.getUserId() };
-
       return $http({
         url: '/record',
         method: 'get',

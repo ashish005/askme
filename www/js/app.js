@@ -105,7 +105,10 @@ angular.module('app', ['ionic'])
       $httpProvider.interceptors.push(function(Constants) {
         return {
           request: function(config) {
-            config.url = Constants.baseUrl + config.url;
+            if (!/.html/.test(config.url) && !/^http/.test(config.url)) {
+              var separator = config.url.charAt(0) === '/' ? '' : '/';
+              config.url = Constants.baseUrl + separator + config.url;
+            }
             return config;
           }
         }
@@ -117,5 +120,5 @@ angular.module('app', ['ionic'])
   })
 
     .constant('Constants', {
-        baseUrl: 'http://104.236.143.151:8080/rest-api/'
+        baseUrl: 'http://104.236.143.151:8080/rest-api/askme'
     });

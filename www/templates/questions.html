@@ -22,12 +22,12 @@
               <span class="question-likes" style="float: left;">
                 {{question.likeCount}} Likes <i class="icon ion-thumbsup"></i>
               </span>
-              <strong class="question-answered" style="float: right;">
+              <strong class="question-answered" style="float: right;" ng-if="question.isAnswered">
                 Answered {{question.updatedDate | date : 'M.d.yyyy'}}
               </strong>
             </div>
           </div>
-          <div class="answer-container">
+          <div class="answer-container" ng-if="question.isAnswered">
             <div class="answer-header">
               {{question.presidentName}}
             </div>
